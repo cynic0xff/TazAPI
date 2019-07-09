@@ -14,7 +14,8 @@ function sendXmlOverPost($url, $xml) {
 
 	// Send to remote and return data to caller.
 	$result = curl_exec($ch);
-	curl_close($ch);
+   curl_close($ch);
+
 	return $result;
 }
 $xml2 = '<?xml version="1.0"?>
@@ -24,10 +25,11 @@ $xml2 = '<?xml version="1.0"?>
   </BackgroundSearchPackage>
 </BackgroundCheck>';
 
+$ssn = '111-22-3333';
 $url = "https://lightning.instascreen.net/send/interchange";
 $xml = "<?xml version='1.0'?>
 <BackgroundCheck userId='saap_xml' password='SxPw1725'>
-   <BackgroundSearchPackage action='submit' type='DEMO' />
+   <BackgroundSearchPackage action='submit' type='DEMO'>
       <ReferenceId>123ABC</ReferenceId>
       <PersonalData>
          <PersonName>
@@ -37,7 +39,7 @@ $xml = "<?xml version='1.0'?>
             <Affix>III</Affix>
          </PersonName>
          <DemographicDetail>
-             <GovernmentId countryCode='US' issuingAuthority='SSN'>111-22-3333</GovernmentId>
+             <GovernmentId countryCode='US' issuingAuthority='SSN'>$ssn</GovernmentId>
              <Gender>M</Gender>
              <DateOfBirth>1974-01-20</DateOfBirth>
          </DemographicDetail>
@@ -55,12 +57,11 @@ $xml = "<?xml version='1.0'?>
       </PersonalData>
       <Screenings>
          <Screening type='credit' />
-         <Screening type='111-22-33333' />
       </Screenings>
    </BackgroundSearchPackage>
 </BackgroundCheck>";
 
-print(sendXmlOverPost($url, $xml2));
+print(sendXmlOverPost($url, $xml));
 
 
 $url = "https://lightning.instascreen.net/send/interchange";
