@@ -8,6 +8,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<!-- cal -->
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 <div class="container py-5">
@@ -40,7 +44,7 @@
                             </div>
 
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Gender
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -50,17 +54,60 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="datepicker">SSN</label>
+                                <input id="datepicker" width="276" value="1974-01-20" />
+                                <script>
+                                    $('#datepicker').datepicker({
+                                        uiLibrary: 'bootstrap4'
+                                    });
+                                </script>
+                                <div class="invalid-feedback">Select a dob.</div>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="ssn">SSN</label>
                                 <input type="text" class="form-control form-control-lg rounded-0" name="ssn" id="ssn" required="" value="111-22-3333">
-                                <div class="invalid-feedback">Oops, you missed this one.</div>
+                                <div class="invalid-feedback">Enter the SSN.</div>
                             </div>
-                                
 
+                            <div class="form-group">
+                                <label for="address1">Address</label>
+                                <input type="text" class="form-control form-control-lg rounded-0" name="address" id="address1" required="" value="1725 Slough Avenue">
+                                <div class="invalid-feedback">Enter the address.</div>
+                            </div>
 
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control form-control-lg rounded-0" name="city" id="city" required="" value="Scranton">
+                                <div class="invalid-feedback">Enter the city.</div>
+                            </div>
 
-                                <GivenName>Joe</GivenName>
-            <MiddleName>Kurt</MiddleName>
-            <FamilyName>Tank</FamilyName>
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control form-control-lg rounded-0" name="state" id="state" required="" value="PA">
+                                <div class="invalid-feedback">Enter the state.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zip">Zip</label>
+                                <input type="text" class="form-control form-control-lg rounded-0" name="zip" id="zip" required="" value="18505">
+                                <div class="invalid-feedback">Enter the address.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control form-control-lg rounded-0" name="email" id="email" required="" value="test@noemail.com">
+                                <div class="invalid-feedback">Enter the address.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control form-control-lg rounded-0" name="phone" id="phone" required="" value="717-555-0177">
+                                <div class="invalid-feedback">Enter the address.</div>
+                            </div>
+
+                            
+
                                 <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Check</button>
                             </form>
                         </div>
